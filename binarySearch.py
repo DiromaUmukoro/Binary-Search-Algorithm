@@ -27,8 +27,9 @@ def binarySearch(n,item):
             end=mid+1
         else:
             return mid
-
-List=sorted(List)
-item='zuza'
-result=(binarySearch(List,item))
-print('The position of %s is %d.'%(item,result))
+    return ('%s  not found'%(item))
+# print(List)
+List=sorted(List) #NB: The positions od our item changed since our list was sorted.
+item=str(input('Enter an item to get the position:'))
+position=(binarySearch(List,item))
+print('The position of %s is %d.'%(item,position))
