@@ -7,34 +7,28 @@ end: the end of the seq
 mid: the middle of the seq n
 midVal: the value in the middle of the sequence
 '''
+
+file=open("words.txt","r")
+content=file.read()
+content_list = content.splitlines()
+file.close()
+List=content_list #converts the text file to a list
 def binarySearch(n,item):
     start=0
     end=len(n)-1
 
     while start <= end:
-        mid= start + (end - start) // 2 
+        mid= start + end // 2 
         midVal = n[mid] #returns the value in the mid point
-        
-        if midVal == item:
+    
+        if midVal > item:
+            end=mid-1
+        elif midVal < midVal:
+            end=mid+1
+        else:
             return mid
 
-        elif item < midVal:
-            end=mid-1
-        else:
-            start=mid+1
-
-    #item not found
-    return None 
-
-
- 
-n=[ ]
-# item=int(input('Enter a whole number to get the position:'))
-item=1654
-
-for i in range(1,1000000,3):
-    n.append(i)
-
-
-result=binarySearch(n,item)
-print('The position of %d is %d.'%(item,result))
+List=sorted(List)
+item='zuza'
+result=(binarySearch(List,item))
+print('The position of %s is %d.'%(item,result))
